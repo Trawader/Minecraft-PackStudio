@@ -36,7 +36,7 @@ for name in ('library','projects','config','reference','.tmp'):
     assert not (output/name).exists(),name
 readme=(output/'README.md').read_text(encoding='utf-8-sig')
 assert 'MCPS.exe' in readme and 'Minecraft PackStudio' in readme
-assert '3.6.0' not in readme
+assert '正式版名称为 **Minecraft PackStudio**' in readme
 report={'status':'passed','modules_match_current_source':len(modules),'assets_match':assets,'identity':'Minecraft PackStudio','personal_data':'absent','gui_launched':False,'bytes':sum(p.stat().st_size for p in output.rglob('*') if p.is_file())}
 (ROOT/'analysis/mcps-packaged-static-check.json').write_text(json.dumps(report,indent=2),encoding='utf8')
 print(json.dumps(report,indent=2))

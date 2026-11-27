@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtGui import QImageReader,QIcon
 from packstudio.studio import StudioWindow
 from packstudio.core import ROOT
-from packstudio.release import VERSION,APP_TITLE,EXECUTABLE_NAME
+from packstudio.release import APP_TITLE,EXECUTABLE_NAME
 
 def main():
     logs=ROOT/'.tmp';logs.mkdir(exist_ok=True)
