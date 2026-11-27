@@ -1,11 +1,10 @@
 """Build the current application package without personal data."""
-import hashlib,json,os,shutil,subprocess,sys
+import argparse,hashlib,json,os,shutil,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-from check_distribution import check
-if not check(ROOT):
-    raise SystemExit('Complete the local runtime resources before building.')
-output=ROOT/'output/McPackStudio'
+parser=argparse.ArgumentParser()
+parser.add_argument('--output',type=Path,default=ROOT/'output/McPackStudio')
+output=parser.parse_args().output.resolve()
 if output.exists():
     raise FileExistsError(output)
 staging=ROOT/'.tmp/mcps-build'
@@ -20,7 +19,6 @@ environment['PATH']=os.pathsep.join(map(str,[Path(sys.executable).parent,Path(sy
 subprocess.run(command,cwd=ROOT,env=environment,check=True)
 shutil.copytree(staging/'dist/MCPS',output)
 shutil.copy2(ROOT/'README.md',output/'README.md')
-shutil.copy2(ROOT/'THIRD_PARTY_NOTICES.md',output/'THIRD_PARTY_NOTICES.md')
 manifest={p.relative_to(output).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in output.rglob('*') if p.is_file()}
 (ROOT/'output/McPackStudio-artifacts.json').write_text(json.dumps(manifest,indent=2),encoding='utf8')
 print(f'Built {output}: {len(manifest)} files',flush=True)

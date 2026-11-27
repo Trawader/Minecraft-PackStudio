@@ -1,0 +1,9 @@
+<!-- Legacy boat geometry coordinates, checked against MCP 1.8.9 ModelBoat.
+     https://github.com/Marcelektro/MavenMCP-1.8.9/blob/master/src/main/java/net/minecraft/client/model/ModelBoat.java -->
+<Techne><Models><Model><Name>Boat (Legacy)</Name><TextureSize>64,32</TextureSize><Geometry>
+<Shape Name="bottom"><Offset>-12,-8,-3</Offset><Position>0,4,0</Position><Size>24,16,4</Size><TextureOffset>0,8</TextureOffset><Rotation>90,0,0</Rotation></Shape>
+<Shape Name="left"><Offset>-10,-7,-1</Offset><Position>-11,4,0</Position><Size>20,6,2</Size><TextureOffset>0,0</TextureOffset><Rotation>0,270,0</Rotation></Shape>
+<Shape Name="right"><Offset>-10,-7,-1</Offset><Position>11,4,0</Position><Size>20,6,2</Size><TextureOffset>0,0</TextureOffset><Rotation>0,90,0</Rotation></Shape>
+<Shape Name="front"><Offset>-10,-7,-1</Offset><Position>0,4,-9</Position><Size>20,6,2</Size><TextureOffset>0,0</TextureOffset><Rotation>0,180,0</Rotation></Shape>
+<Shape Name="back"><Offset>-10,-7,-1</Offset><Position>0,4,9</Position><Size>20,6,2</Size><TextureOffset>0,0</TextureOffset><Rotation>0,0,0</Rotation></Shape>
+</Geometry></Model></Models></Techne>

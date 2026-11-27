@@ -1,0 +1,15 @@
+﻿Minecraft PackStudio 完整源码
+
+运行环境：Windows、Python 3.13。首次使用需要联网安装 requirements.txt 中的 PySide6 依赖；Python 和虚拟环境不属于源码文件，未随包复制。
+
+启动：安装 Python 3.13 后双击 start.cmd。脚本自动建立环境、安装缺少的依赖、检查程序文件并启动。
+打包：双击 build.cmd。安装构建依赖后生成 output/McPackStudio；已有同名目录时停止，避免覆盖。
+完整检查：.venv\Scripts\python.exe check_source.py
+仅检查文件：py -3.13 check_source.py --files-only
+修改代码后，完整性检查会报告与导出清单的差异；清单用于核对本次分发内容。
+
+已包含：全部 packstudio 源代码；data/vanilla-assets.zip 内置原版资源；版本与名称索引；图集与转换规则；模型 XML；所有工具图标、应用图标和其他界面图片；资源编号对照；启动及打包脚本。
+内置素材不需要另行下载，也不需要 reference、原开发目录或已安装的打包程序。config、library、projects 等用户目录运行时按需建立。
+
+未包含：用户素材库、个人项目、缓存、日志、测试结果、用户与 AI 工作记录、历史审计和开发阶段文档。
+文件清单：source-manifest.json，可检查文件缺失或内容变化。内置 ZIP 必须保留，不能作为一般压缩包清理掉。

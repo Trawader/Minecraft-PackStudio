@@ -2,25 +2,13 @@
 
 Minecraft PackStudio 是面向 Minecraft Java 版资源包的桌面编辑器，集素材管理、像素编辑、物品预览、图集组件处理、项目合成和跨版本导出于一体。
 
-正式版名称为 **Minecraft PackStudio**，发行程序名为 **MCPS**。应用名称统一维护在 `packstudio/release.py`。
-
-## 仓库交付范围
-
-本仓库用于私有源码托管。应用代码、版本映射、界面文本、检查脚本和构建入口随仓库保存；原版资源库、模型、游戏中文文本及待核实图标保留在原工程中，逐项清单见 `docs/private-resources.json`。
-
-**启动和完整打包前，需要按清单补齐本地运行资源。** 原版资源库由 `builtin_assets.py` 在运行时读取。补齐后的文件受 `.gitignore` 管理，授权审查后再决定其仓库分发方式。检查命令为：
-
-```powershell
-py -3.13 analysis/check_distribution.py
-```
-
-资源来源与分发事项见 `THIRD_PARTY_NOTICES.md`，审查结论见 `docs/distribution-audit.md`。
+应用名称为 **Minecraft PackStudio**，发行程序名为 **MCPS**。应用名称统一维护在 `packstudio/release.py`。
 
 ## 启动
 
 源码运行环境：Windows、Python 3.13、PySide6 6.12.0。
 
-双击 `start.cmd` 启动。首次运行时，脚本创建 `.venv` 虚拟环境并安装 `requirements.txt` 中的依赖。
+双击 `start.cmd` 启动。首次运行时，脚本创建 `.venv` 虚拟环境并安装 `requirements.txt` 中的依赖。内置原版素材、工具图片和模型已经包含在仓库中，无需另行补齐。
 
 也可以在本目录执行：
 
@@ -31,17 +19,6 @@ py -3.13 -m venv .venv
 ```
 
 发行版通过 `MCPS.exe` 启动，运行依赖随程序分发。解压时保留完整目录结构，包括 `_internal`。
-
-## 构建
-
-补齐运行资源后，在仓库根目录执行：
-
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-build.txt
-.\.venv\Scripts\python.exe analysis/build_mcps.py
-```
-
-构建脚本先核对运行资源，再使用 PyInstaller 生成 `output/McPackStudio/MCPS.exe` 和配套 `_internal`。已有同名输出目录时停止构建，保留现有成品。运行依赖锁定在 `requirements.lock.txt`，构建依赖列于 `requirements-build.txt`。
 
 ## 基本流程
 
@@ -160,8 +137,8 @@ py -3.13 -m venv .venv
 | `packstudio/history_window.py`、`resource_history.py` | 操作历史和资源撤销。 |
 | `packstudio/localization.py`、`resource_names.py` | 界面语言与资源名称。 |
 | `packstudio/data/`、`packstudio/assets/` | 版本数据、原版资源、规则、模型与界面资源。 |
-| `analysis/` | 开发分析、专项检查与数据处理脚本。 |
-| `docs/` | 设计说明、转换规则、审计与阶段记录。 |
+| `analysis/` | 程序打包脚本。 |
+| `docs/` | 程序内可打开的资源编号对照文档。 |
 
 ## 本地数据
 
@@ -175,4 +152,4 @@ py -3.13 -m venv .venv
 | `.tmp/editor-errors.log` | 应用异常日志。 |
 | `.tmp/native-crash.log` | 底层异常日志。 |
 
-备份工作成果时，保存工程文件，并根据需要一并保存素材库与原始资源包。运行资源与源码分发事项见 `THIRD_PARTY_NOTICES.md` 和 `docs/distribution-audit.md`。`analysis/verify_*.py` 为检查源码，其中部分脚本使用本地 `test/` 或 `reference/` 输入；相应素材与历史报告留在原工程中。
+备份工作成果时，保存工程文件，并根据需要一并保存素材库与原始资源包。
