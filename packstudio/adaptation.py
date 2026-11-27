@@ -53,6 +53,38 @@ def paint(base,patch,box):
     painter=QPainter(base);painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_Source)
     painter.drawImage(rect,patch);painter.end()
 
+def inventory_layout(image,forward):
+    """Reflow the crafting panel while retaining the pack's own RGBA background.
+
+    Slot interiors and the arrow move together, without scaling. Only padding
+    changes width/height. Coordinates are vanilla UVs, scaled to the source PNG.
+    """
+    result=image.copy();source=image.copy()
+    def rect(x,y,w,h):
+        left,top=round(x*image.width()/256),round(y*image.height()/256)
+        return QRect(left,top,round((x+w)*image.width()/256)-left,round((y+h)*image.height()/256)-top)
+    if not forward:
+        # The legacy layout has no offhand slot. Extend the pack's background
+        # immediately above it, retaining the adjacent player-panel edge.
+        patch=source.copy(rect(76,53,18,8))
+        p=QPainter(source);p.setCompositionMode(QPainter.CompositionMode.CompositionMode_Source)
+        p.drawImage(rect(76,61,18,18),patch);p.end()
+        result=source.copy()
+    xs,xt=(80,87,164,176),(80,97,174,176)
+    ys,yt=(0,25,61,83),(0,17,53,83)
+    if not forward:xs,xt,ys,yt=xt,xs,yt,ys
+    p=QPainter(result);p.setCompositionMode(QPainter.CompositionMode.CompositionMode_Source)
+    for i in range(3):
+        for j in range(3):
+            a=rect(xs[i],ys[j],xs[i+1]-xs[i],ys[j+1]-ys[j])
+            b=rect(xt[i],yt[j],xt[i+1]-xt[i],yt[j+1]-yt[j])
+            p.drawImage(b,source,a)
+    if forward:
+        # Reuse an empty armor-slot frame, including deliberate transparency.
+        p.drawImage(rect(76,61,18,18),image,rect(7,7,18,18))
+    p.end()
+    return result
+
 @lru_cache(maxsize=121)
 def rename_map(source,target):
     old=before(source,'1.13');new=before(target,'1.13')
@@ -119,17 +151,20 @@ def adapt(files,source,target,vanilla,below=None):
     inventory='assets/minecraft/textures/gui/container/inventory.png'
     # Inventory retains its path but the crafting area moved in 1.9.
     if inventory in files and inventory not in blocked and ((before(source,'1.9'))!=(before(target,'1.9'))):
-        base=decode(below.get(inventory) or vanilla.get(target,inventory));im=decode(files[inventory])
-        if im.width()>base.width():base=base.scaled(im.width(),im.width())
-        old=before(source,'1.9')
-        moves=[([0,0,176,166,256,256],[0,0,176,166,256,256])]
-        # Copy shared inventory/player areas only; target defaults supply the new offhand.
-        moves=[([0,0,76,166,256,256],[0,0,76,166,256,256]),([0,83,176,83,256,256],[0,83,176,83,256,256]),
-               ([87,25,36,36,256,256],[97,17,36,36,256,256]),([141,34,23,23,256,256],[151,26,23,23,256,256])]
-        for a,b in moves:
-            if not old:a,b=b,a
-            paint(base,crop(im,a),b)
-        out[inventory]=png(base);consumed.add(inventory);note(inventory,'relocated','crafting/offhand; target vanilla fills missing regions')
+        im=decode(files[inventory])
+        if im.width()!=im.height():
+            consumed.add(inventory);blocked.add(inventory)
+            note(inventory,'omitted','Inventory layout requires a square atlas')
+        else:
+            panel=inventory_layout(im,before(source,'1.9'))
+            # Keep target-only recipe buttons/effect sprites outside the panel.
+            # Replace the ENTIRE panel in Source mode, including transparent
+            # padding: target defaults must never show through custom GUI art.
+            data=out.get(inventory) or below.get(inventory) or vanilla.get(target,inventory)
+            base=decode(data) if data else im.copy()
+            paint(base,crop(panel,[0,0,176,166,256,256]),[0,0,176,166,256,256])
+            out[inventory]=png(base);consumed.add(inventory)
+            note(inventory,'relocated','Crafting panel reflowed with source background/alpha; offhand uses source slot style')
     mapping=rename_map(source,target)
     for path in consumed:
         if path not in blocked and path in dest and path not in out and src.get(path,{}).get('size')==dest[path].get('size'):
