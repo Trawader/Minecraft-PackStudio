@@ -1,0 +1,13 @@
+{
+  "footprint": {"name":"脚印 / Footprint","tags":["脚印","足迹","脚步","footprint","footstep"]},
+  "heart": {"name":"爱心 / Heart","tags":["爱心","心形","繁殖","heart"]},
+  "angry": {"name":"愤怒 / Angry","tags":["愤怒","生气","村民","angry"]},
+  "glint": {
+    "name": "闪光 / Glint",
+    "tags": ["流星", "发光", "闪光", "星光", "星形", "星点", "粒子", "堆肥", "堆肥成功", "村民", "村民高兴", "蛋壳", "蛋壳裂纹", "成长", "生长", "暂停成长", "重置成长", "composter", "happy_villager", "egg_crack", "pause_mob_growth", "reset_mob_growth", "glow", "sparkle", "shine"]
+  },
+  "glow": {
+    "name": "火花 / Glow",
+    "tags": ["发光", "闪光", "光点", "亮点", "粒子", "发光鱿鱼", "电火花", "火花", "刮铜", "铜", "上蜡", "除蜡", "去蜡", "electric_spark", "scrape", "wax_on", "wax_off", "glint", "sparkle", "shine"]
+  }
+}

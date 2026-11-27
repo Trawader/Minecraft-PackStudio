@@ -1,0 +1,707 @@
+{
+  "description": "本地运行资源清单；文件留在原工程，加入仓库前逐项确认来源和授权。",
+  "files": [
+    {
+      "path": "packstudio/assets/mcps.ico",
+      "bytes": 48137,
+      "sha256": "9934ec95aea6f85e9f7c78760a4b2cfb2a2779b72d4fe7caa6e900a88f5ce6ca",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/mcps.png",
+      "bytes": 1003012,
+      "sha256": "963c172adc097e933f73a9cc0c762f527451b077a2816ba73ca518d19c0c67ef",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-bucket-20.png",
+      "bytes": 218,
+      "sha256": "331e0ed4ae3419778d1d50cee069c81bf99790a38ee8e6ee2a34f1aac49ebd73",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-bucket-30.png",
+      "bytes": 265,
+      "sha256": "482b4cc7bfedf37d91158a57be353ec17b513d9ca56156580dc6d0943afdc942",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-bucket-40.png",
+      "bytes": 268,
+      "sha256": "29e2ba715882f4757521e2f5c50adde91acc41a447beb2c306219e58e131c4d9",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-bucket-60.png",
+      "bytes": 329,
+      "sha256": "830877f034381bfb4f2a8f6de4baed3745878b11af4453bd905345946c010119",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-burn-20.png",
+      "bytes": 194,
+      "sha256": "f11837839c73a7689f7df5863c194996356ac1a012504dc56b29c6081b2aa5c4",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-burn-30.png",
+      "bytes": 219,
+      "sha256": "95eb1590dfc8616832bcea8f53fa69a152dfa66d71de5df0596b361c7c9639e9",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-burn-40.png",
+      "bytes": 231,
+      "sha256": "7a348b5ecb97f20af18a1e30bd3e1f1666714746470ba1b6c6a72aeec6000f8c",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-burn-60.png",
+      "bytes": 291,
+      "sha256": "18e36d799a7250f9baa55a36506613b93f639eba48e7cf41ef68986447dc14ad",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-darken-20.png",
+      "bytes": 158,
+      "sha256": "2e46c7534d30c58669f49d48b64a88826e8cd9cac3959ed8f5a139543e0f1013",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-darken-30.png",
+      "bytes": 203,
+      "sha256": "4dc3cf042530e35281642382651775af55485c5dfb1f94374d25af8e387767d6",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-darken-40.png",
+      "bytes": 217,
+      "sha256": "4a33270b445d33af9a04a05329a2e62bdae8597f3a259cbb76b10e51bcd5b63e",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-darken-60.png",
+      "bytes": 262,
+      "sha256": "239ee0b978c688ce2ce40ea7ed668446c03021842c1c537dc5a5a4758964f76c",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-dodge-20.png",
+      "bytes": 195,
+      "sha256": "2170d08a14374dccc18222da83fb24af54bf89adbc10a114edbd552387cb0b61",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-dodge-30.png",
+      "bytes": 220,
+      "sha256": "01f29943a1d1017768602b59615a69dcab38be3f19796a714a3d6d07348bcfd6",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-dodge-40.png",
+      "bytes": 232,
+      "sha256": "c60643f829db659444f037e5ccb3b4ed4258eb8d24f24b23d2708df136312a3e",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-dodge-60.png",
+      "bytes": 290,
+      "sha256": "20f825348d8a33fd6d1eed6417859436bbdc9b7f54640f5b7c775b780acbeee0",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-eraser-20.png",
+      "bytes": 218,
+      "sha256": "68c009ff4f2774fb4fb581bc0054a1b50e52fcc634c89470c34c2b1099a66a05",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-eraser-30.png",
+      "bytes": 253,
+      "sha256": "6a70ea6f575ff8855f6c6d1ef5da5e9148d6c812c2f12430e9ec6464036e41b2",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-eraser-40.png",
+      "bytes": 249,
+      "sha256": "01e9efd13ff18deda4ed625d600409e60b4b74ee59a3933c67029d601d77d066",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-eraser-60.png",
+      "bytes": 314,
+      "sha256": "480be230d012e20a590f440351f8273ff6612d2fd78d772781e5c0f5e1faa32e",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-lighten-20.png",
+      "bytes": 182,
+      "sha256": "c2443d9bb821d37dc2062e607033cbb0ec0f01d4a099d5490f3c0ce22e269a0f",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-lighten-30.png",
+      "bytes": 217,
+      "sha256": "20e7e77455308429d8591ca357e3e9e42adbeca76c78d281f060d13146a569cd",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-lighten-40.png",
+      "bytes": 223,
+      "sha256": "32216da09a25fa6d7ab7e7d58e262b4cdc434ae7b260f32cb48292576d0761a6",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-lighten-60.png",
+      "bytes": 280,
+      "sha256": "130de59bd9b071e36b0228fff4996394002240deaecd38ff96ed716178f777b3",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_eraser-20.png",
+      "bytes": 241,
+      "sha256": "005053de65d0c385971536cd52cb4c6deffc3f113501cf78975139dbb4c94627",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_eraser-30.png",
+      "bytes": 279,
+      "sha256": "03ed421784fa6fefb867030cea819f304994a798e0b011a1e393a8de1c878d88",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_eraser-40.png",
+      "bytes": 279,
+      "sha256": "5b8cb794e6426eafed4df711378a07be7d6f75920518533505bdb7517f2b9447",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_eraser-60.png",
+      "bytes": 342,
+      "sha256": "724bb5cf835e5a0cf7c911e1e4b62b43bc0816425a87037035953acf7ad25ec1",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_select-20.png",
+      "bytes": 215,
+      "sha256": "4d146692718cba3bd0e9af9eaefb788a7e9957b94d259a7d52f8edbb64f5be17",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_select-30.png",
+      "bytes": 260,
+      "sha256": "ba3c2df2cc43522d23ca9a7cd4324c12170530460a24e0795a54e87dbda1af0b",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_select-40.png",
+      "bytes": 279,
+      "sha256": "3aad7938ca29d13a5e91e7321e26c454bff918ff1f963629cc0f395bd0f83ede",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-magic_select-60.png",
+      "bytes": 327,
+      "sha256": "f4baafda464d64ee5f515739fc0c4140d4ba55d9cae1a0e74fdce5e8e17c7662",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-mouse-20.png",
+      "bytes": 209,
+      "sha256": "ffed03f983950c1d1802c4b64c76390d298558d1b9a593249da90e7e880384f5",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-mouse-30.png",
+      "bytes": 263,
+      "sha256": "bc018366c2f220fff072bf72bc522b7a4e379a5097891ced1d27643eea232ba9",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-mouse-40.png",
+      "bytes": 274,
+      "sha256": "70ab991c97a8358d29185565cc180a460eb8f9bccf3a871270841520028ee983",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-mouse-60.png",
+      "bytes": 330,
+      "sha256": "69ee0e54e4ce3d6596fd061953ef47bac5c17a01d4969cdb2017785fecd93338",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-palette-20.png",
+      "bytes": 223,
+      "sha256": "4df79bfffbe2b798bf03581399ab5572f934777917f076047cc7bde22b6e6a8e",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-palette-30.png",
+      "bytes": 244,
+      "sha256": "641c3daf4abc2ca9d666ed5d94e4fe86fdec8a2f16ccf3e336889ac7d98dc34d",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-palette-40.png",
+      "bytes": 254,
+      "sha256": "f75068e1cc21522db4d314eb3770f3bb1072af5f42dcfe51213c8e32d1537dd1",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-palette-60.png",
+      "bytes": 318,
+      "sha256": "bd758542c7e04fe0da6d2747a20deb907a3151fcf171c93d91ca54bad1d926f9",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-pencil-20.png",
+      "bytes": 257,
+      "sha256": "489eaf0285bc4d359c9db79d91ddbfa3f9c9e5fc01a3d097a8a7367fc6fee364",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-pencil-30.png",
+      "bytes": 298,
+      "sha256": "be2bfb116c88d0acd75eec94cbe95713db2ce8e3f8ba6cc937d57b99f7442ebe",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-pencil-40.png",
+      "bytes": 322,
+      "sha256": "1d8babca096ad88167cd67f8bf9563bbd775dbe9bec9a4ac09f4906c810d1bbf",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-pencil-60.png",
+      "bytes": 388,
+      "sha256": "91729979b893ef3b70f5a33346a20f5a8a2c072b68e133d503c9d487d51f685a",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-picker-20.png",
+      "bytes": 188,
+      "sha256": "3b2908a6f9180cee033562bc79d9faa0b4e182cc188baf30373234072c6e2ec1",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-picker-30.png",
+      "bytes": 228,
+      "sha256": "56e3495ae25ac353604a23b9d374f752e7be131e64b8f2a62c5ef6d39bc64a5b",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-picker-40.png",
+      "bytes": 239,
+      "sha256": "34ed6a19bc1a6c4ea43805ae8ac28a07f2f6b31b47fd9144ea66bb1c23f00d6a",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-picker-60.png",
+      "bytes": 301,
+      "sha256": "182db629e77dfc577e3753ba4e7914dbfc5d82cfb1e21fe22accf4d4f329f83e",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-screen_picker-20.png",
+      "bytes": 193,
+      "sha256": "86735bd999b5b2baf9568775748188fabfe407f4f548474a8a0d3cb38987167b",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-screen_picker-30.png",
+      "bytes": 227,
+      "sha256": "6a3b2bf6b855b10e96dca76dbc9f83b30564aa8ed0aa4283e687e52004668080",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-screen_picker-40.png",
+      "bytes": 236,
+      "sha256": "49d0bb3967517d2e71e212c040f21c06ec751146ec8f9110d5faf84633c19422",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-screen_picker-60.png",
+      "bytes": 298,
+      "sha256": "11ff72bead48bff8284045b5a864bedbe37b8ed8cfca1cc84a8be0983aa107b6",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-select-20.png",
+      "bytes": 165,
+      "sha256": "089bc3d440b695aced8e9770b3538e9e43dd4101d79367c5a842dcd28e75dce0",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-select-30.png",
+      "bytes": 188,
+      "sha256": "d494ccd67476ba334679420e7f30d3d171de124ea6424c0f2fa0793dbc98d049",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-select-40.png",
+      "bytes": 208,
+      "sha256": "e25a8a332c70bd5053039d9e45f8c0787ea614ef2d6086b4a4db9cf52fdce7ce",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-select-60.png",
+      "bytes": 244,
+      "sha256": "49c9f8b861c4cefdce4bfe645e1a2999dc7def9cad2479c2b45afacb3c30457d",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-smart-20.png",
+      "bytes": 187,
+      "sha256": "32b5d9e5a5cee5bf4519ca9c61e625c73d61d5737dfea01a48dcd3cce2ecd37e",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-smart-30.png",
+      "bytes": 226,
+      "sha256": "d17efbecc0a029850d42b34a22ca38cdbf2d33c36af69fce711cf20eb61d0887",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-smart-40.png",
+      "bytes": 235,
+      "sha256": "9f414877a19cb14dfc39fec9c0686a6a37825e833f8870408d255205df2705a8",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-smart-60.png",
+      "bytes": 302,
+      "sha256": "4291a0be440bc55aa3de49078a327aeb05359e5b2cac4030091f8d98f5db6844",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-wand-20.png",
+      "bytes": 289,
+      "sha256": "33b83375aa7448209f28edf0587bbfcf074d73a53e524eaf64d57a5a7bc756c3",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-wand-30.png",
+      "bytes": 354,
+      "sha256": "bf4773a395362a1082cb1c675054f41f9de68e0e46e7231a54cf60530dfac151",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-wand-40.png",
+      "bytes": 340,
+      "sha256": "9ffa49a18ba8cf0c1c8748d391beac24f2ad826c5cd814676c407761890e1a91",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/assets/tool-wand-60.png",
+      "bytes": 420,
+      "sha256": "f32b51c36c9bc88d512fd06507a93693ff996320d8fe5ed0c7ea903ce2955920",
+      "reason": "截图提取图标或应用图标来源需逐项核实"
+    },
+    {
+      "path": "packstudio/data/boat_legacy.xml",
+      "bytes": 1139,
+      "sha256": "2c98c4cb4d47392764681d078b15c171afb37182c5c73cba2819721dfc61d818",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/game_names_zh.json",
+      "bytes": 254131,
+      "sha256": "881f4349eae3eb317b28a7d4dd971749a6c43a1334c2999fc81027b5efa9e65c",
+      "reason": "提取的官方及参考工具语言文本，授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Alex (Minimal).xml",
+      "bytes": 7292,
+      "sha256": "64e0428db666ccc9ba15ea8c9558f9ec9f41efb2596ba92e040dda8e0ee162bc",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Alex.xml",
+      "bytes": 9733,
+      "sha256": "bb7148afee2658bf9791c7fbde02c160461e84df6b8a8db3b661d3eeebb34805",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Armor Stand.xml",
+      "bytes": 7258,
+      "sha256": "54cd5da096fe9fc5ed0d2a13ca7f469b17ab18524714a1110a0d6e707c4fc5ea",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Banner.xml",
+      "bytes": 4680,
+      "sha256": "9241c63d729ef98cbc5b8c0e0581d4ac776af44c249bf2fdfa167ca27bfec89e",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Bat.xml",
+      "bytes": 7861,
+      "sha256": "6c850abc0f1686b210d2887490f93f4c1b89c29dfa5a971adeab9cce914e4ab9",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Blaze.xml",
+      "bytes": 10556,
+      "sha256": "1da691f4ebd284a31fee72073a1a7ee7a116f5dd81c4cf4e52e1292ee7ef0eef",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Boat.xml",
+      "bytes": 10338,
+      "sha256": "e48d5e941155f7be6147cee20379e375d0eabd41e2bdcb2ef9c8db0adef8e93f",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Book.xml",
+      "bytes": 5597,
+      "sha256": "473a49f53fee2e1c45a5473cc9095be9a3a01c69480a8c623e20ae9d4965f977",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Cape.xml",
+      "bytes": 1369,
+      "sha256": "e4f38332356d5658870c57228efe362747ddd62c5376ecd24638d51a69c25b8d",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Chest.xml",
+      "bytes": 3504,
+      "sha256": "741fba6485c4d720a9f8eae1f919934dfe1dd033158f53414fdcc7bc868f3bdd",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Chicken.xml",
+      "bytes": 5118,
+      "sha256": "441b571246d22a94a78e8a7e743de5be16421b74090292a57066def92a23cf61",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Cow.xml",
+      "bytes": 6670,
+      "sha256": "a9e5b297b9263ff49e76bb5c67deb326070dfd2c6e18d5280d2fb787140488af",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Creeper.xml",
+      "bytes": 7422,
+      "sha256": "15bc0c3a6065c79d93e7b3f3d5ba1898da68ae610cd004abdf8d13b388c8fe58",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Dragon.xml",
+      "bytes": 43800,
+      "sha256": "db00a2fb3bda13aeeec4ae09388768480c28a34dba6205c695f1f54781956810",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Elytra.xml",
+      "bytes": 2146,
+      "sha256": "88a45d3d9f37b1dff6d894fa4e5d0490264f7975255e8a38d7d27c4d862aff13",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Ender Crystal.xml",
+      "bytes": 5758,
+      "sha256": "b753ac147f9a39e9cfafa5fd9be1321e6f1e351645da7f4680af7f7e54a06362",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Enderman.xml",
+      "bytes": 4786,
+      "sha256": "e37a1f5c3c984be42b61f60829c0324d633b597cc3495bd22d264e3814e940fb",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/EnderMite.xml",
+      "bytes": 3838,
+      "sha256": "9d40be9f3cd33fdcfe6b780857f776b2714040443c6994b5a6e3e709c2222959",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Ghast.xml",
+      "bytes": 6667,
+      "sha256": "3267504adb6d7ff87054150e0d9dbfc88bced1c5654c15662e2cbecfb084071f",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Guardian.xml",
+      "bytes": 18877,
+      "sha256": "ebb29a72d2a213294cf1eb9da81807cefdb49d6dd1d69ad66a5270de48bd691c",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Horse.xml",
+      "bytes": 28862,
+      "sha256": "a4795e6030f760ed92be92ca87095439a71616aee422a9f29f75a10e7fa7763d",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Iron Golem.xml",
+      "bytes": 12139,
+      "sha256": "160ecbc5edfdbb37974902a6f8f33376d6bc3954db2fa6a54e24fb8ce3291cc8",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Large Chest.xml",
+      "bytes": 3986,
+      "sha256": "fb8d7633a10f17013300a2beae35c5b1c23675a46e3692a6d40bac6ea72aabf9",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Leash Knot.xml",
+      "bytes": 1646,
+      "sha256": "f702c9030686f71d1a0cc1e3a79a5e6e235ff7980cda8cc5f4e3a2a4b7dfcffe",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Magma Cube.xml",
+      "bytes": 6443,
+      "sha256": "a0cd637fa45386602802452a2bd8ee1fe2b33c7cdbd47f7dcca2f3b9612a6a9c",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Minecart.xml",
+      "bytes": 6431,
+      "sha256": "75d4c18935224038933462e6f98d4642b134079f8e49b9d0a432e7854cabe766",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Ocelot.xml",
+      "bytes": 9094,
+      "sha256": "323fe8b6157f93c8b743d0aab0d332acd7f9698e7952452276c5b6e1e4cb83df",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Pig.xml",
+      "bytes": 8438,
+      "sha256": "673a8144c95523bd2037353c9626bdfa7d9cb4a2fc2fd7e6f980569594c36f63",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Rabbit.xml",
+      "bytes": 7961,
+      "sha256": "a2f05a8f8d7016832ac588fc140141a6a7b02aa4d5ecbb12e19205cef0bccb9d",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Sheep (Wool).xml",
+      "bytes": 5648,
+      "sha256": "f86eb514532786b27bf339e7ccc5f97b48c9a763debf227e30658d498a2d5d7a",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Sheep.xml",
+      "bytes": 6726,
+      "sha256": "fa5feaf93822116c7d169a75b1fccfaf561b44000705cf1ec1802862d98128f9",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Shield.xml",
+      "bytes": 4231,
+      "sha256": "93a5058cf1b4ab14c71fa5efb821045e0520ca3f96d6fd00ccaf1b92f6e5bc1c",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Shulker Bullet.xml",
+      "bytes": 3206,
+      "sha256": "f9359dd3e5c46e24c45ce2a7b21ea358bde4229b1f8f0fd9d75a9e70c541dc54",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Shulker.xml",
+      "bytes": 4692,
+      "sha256": "028ef42b2b0a7e873d69be1da5a15f197459d72ee6b1dc495ecad0af12457ea4",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Sign.xml",
+      "bytes": 2931,
+      "sha256": "65f1de0846550faecbe6a1290460c3bd1457e3782488e9f3691916ac24444717",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Silverfish.xml",
+      "bytes": 7313,
+      "sha256": "7a48a297d12314ad81d85d7a98a791e9249cf88782e2116fcbaaa05d916b001c",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Skeleton.xml",
+      "bytes": 5370,
+      "sha256": "30f9e84638afd4f3d4f3fec4196105e513468736a23bb65a1fdfd81deae28190",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Slime.xml",
+      "bytes": 3705,
+      "sha256": "3303320c189f18ba2de0589c923d5c990a2135c741c75d119d88f7d6056f2ad3",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/SnowMan.xml",
+      "bytes": 5282,
+      "sha256": "43a3afeb34e5679804cfba6301ed72682258be874f4964a478baca55fb7d20ce",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Spider.xml",
+      "bytes": 9299,
+      "sha256": "71bb4e886afa06979e62efae9cad87f299dadac8d18603cb05ab5facf2e68978",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Squid.xml",
+      "bytes": 6106,
+      "sha256": "f6306ad266931189d320efa16b1e86ba550b33a50ffcad8783f3a0918f35c898",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Steve (Minimal).xml",
+      "bytes": 6330,
+      "sha256": "b58f4043af393e6fd8a2cf1f99e520a3476cbbfc2e44e7c72d597941c4b8b15a",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Steve.xml",
+      "bytes": 8579,
+      "sha256": "8bda3ab21b802cd9c5271047fad7509822781b5c9aca646c901ea7273a3e6cfb",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Villager.xml",
+      "bytes": 7800,
+      "sha256": "9f47c4ffbf011e27703ad58bced8f8e8a19acedbb43a43fb920ecc51b4c651ec",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Witch.xml",
+      "bytes": 9779,
+      "sha256": "a09a30da4a7c162f1d75f54671f8c31dffe6d22e1da15f42ff61d9270a4d2e5f",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Wither.xml",
+      "bytes": 7471,
+      "sha256": "d08c9bc7d163489d601f9e5543c1ab6768c96a0cf6a678a8b12b6ece3446512a",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Wolf.xml",
+      "bytes": 10055,
+      "sha256": "564060678c08d8ff921ffab9205d0d1d7685a87cf6e37cec903be7338e8e07b2",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/models/Zombie Villager.xml",
+      "bytes": 8951,
+      "sha256": "f89e7f7256c37d59bf64fe7ac049bae21f27c183f83841b027fc70f44e8b20ac",
+      "reason": "模型来源或再分发授权待核实"
+    },
+    {
+      "path": "packstudio/data/vanilla-assets.zip",
+      "bytes": 39075608,
+      "sha256": "143c866e546eafb7e595bdbe6fc7a4b693b4ff17a180dbdd838e45a41c0c7245",
+      "reason": "内含 Minecraft 原版贴图、模型及其他资源，授权待核实"
+    }
+  ]
+}
