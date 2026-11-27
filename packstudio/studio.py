@@ -677,11 +677,15 @@ class StudioWindow(WorkspaceWindow):
         self.library_mode.setCurrentIndex(0)
         if hasattr(self,'vanilla_version'):self.vanilla_version.setCurrentIndex(0)
         self.refresh()
-        item=next((item for item in self.tree_items.values() if (item.data(0,Qt.ItemDataRole.UserRole) or {}).get('origin')==d['origin'] and (item.data(0,Qt.ItemDataRole.UserRole) or {}).get('path')==d['path'] and (item.data(0,Qt.ItemDataRole.UserRole) or {}).get('kind')=='png'),None)
+        # ItemMap materializes the path even when none of its parents is open.
+        item=self.tree_items.get(self.descriptor_key({'origin':d['origin'],'path':d['path'],'kind':'png'}))
         if item is not None:
-            parent=item.parent()
-            while parent is not None:parent.setExpanded(True);parent=parent.parent()
-            self.tree.setCurrentItem(item);self.tree.scrollToItem(item);self.docks['library'].show()
+            parents=[];parent=item.parent()
+            while parent is not None:parents.append(parent);parent=parent.parent()
+            for parent in reversed(parents):parent.setExpanded(True)
+            self.docks['library'].show();self.docks['library'].raise_()
+            self.tree.clearSelection();self.tree.setCurrentItem(item)
+            self.tree.scrollToItem(item);self.tree.setFocus()
 
     def resource_menu_base(self,d):
         if d['origin']=='@category':return QMenu(self)

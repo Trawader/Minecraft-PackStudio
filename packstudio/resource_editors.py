@@ -117,7 +117,7 @@ class ResourceEditors(QObject):
             from .animation_editor import state_paths
             owner=self.window.source(descriptor['origin'])
             paths=state_paths(owner.files,descriptor['path']) if owner else []
-            if paths:context={**descriptor,'object_paths':paths}
+            if paths:context={**descriptor,'object_paths':paths,'state_texture_only':True}
         if context:
             if self.object_descriptor!=context:self.select_object(context)
             for i in range(self.cards.count()):

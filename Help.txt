@@ -1,0 +1,487 @@
+Minecraft PackStudio 使用说明：从喜欢几个材质包，到做出自己的一个包
+
+本说明适用于 Minecraft PackStudio，包含模型修复与选择器交互更新。
+打包版请完整解压 McPackStudio 文件夹，运行其中的 MCPS.exe，并保留同目录的 _internal 文件夹。打包版无需另行安装 Python。
+源码版请安装 Python 3.13，然后运行源码文件夹中的 start.cmd；首次运行会联网安装所需依赖。两种方式都已包含支持版本的原版参考素材。
+English guide follows the Chinese guide.
+
+一、你为什么会需要它
+
+你可能同时喜欢三个材质包：第一个的准心很顺手，第二个的方块好看，第三个的武器正合胃口。
+在游戏里调整整包的顺序，可以决定哪个包优先，但很难把同一张图片里的不同部件分别交给不同材质包。你就必须要编辑材质包，但是这可能并不方便——比如旧版本的准心放在 icons.png 里，旁边还有爱心、护甲、饥饿值等图标。直接把整张 icons.png 换过去，其他图标也跟着换了。而且，在修改时如果两个包的分辨率不同，还得自己找位置、裁剪、缩放、对齐。
+
+Pack Studio 做的，就是把这件事拆成你看得懂的操作：找到喜欢的素材，加入合成台，安排谁盖住谁，最后导出一个包。你也可以在里面改颜色、画几个像素，或者把已支持的素材适配到另一个游戏版本。
+
+当前面向 Java 版资源包。基岩版支持尚未加入。
+
+二、先把要用的包放进来
+
+打开软件，把三个材质包的 ZIP 或文件夹拖进窗口，也可以从“导入”菜单选择。单张 PNG 和 OGG 音效也可以导入。
+
+导入之后，它们会出现在左边的素材库里。这里像你的素材柜：先收集，慢慢挑，放在这里的东西不会全部自动进入成品。
+
+软件会保存导入资源的内部副本。平时直接编辑素材库，改的是这份内部素材，编辑会自动保存。最初拖进来的外部 ZIP 并不是日常编辑的保存位置。
+
+想保留素材库中的样子，只为这一次合成做改动，就先“加入项目”，再编辑合成台里的副本。
+
+如果安装的是完整打包程序，解压整个文件夹后运行其中的 EXE，保留旁边的 _internal 文件夹。支持版本的原版资源已经内置，正常使用不用另外找 assets，也不用给打包程序安装 Python。
+
+三、找准心、找方块、找武器
+
+素材库有两种视图。
+
+文件树适合知道文件在哪的人。它按实际文件夹排列，能看到图片、音效、配置和其他文件。已经支持拆分的图集，可以展开挑选其中的准心、爱心、经验条、粒子等部件。
+
+选择器适合按游戏里的东西找。你可以从分类中找剑、弓、盔甲、方块等对象，不必先记住文件名。一个对象可能需要好几张贴图，例如弓的不同拉弓状态，或盔甲的物品图标和穿戴贴图。
+
+打开对象后，画板下方的“关联素材”会把找到的相关图片摆在一起，点哪张就编辑哪张。
+
+找不到想改的文件时，可以用搜索框按名称、路径或部件搜索，再用版本下拉框缩小范围。
+
+勾选“显示原版资源”可以拿内置原版作参考；内置原版资源无法在素材库中修改，如果要使用，请先在项目中创建副本。
+
+从选择器或底部关联素材找到具体 PNG 后，右键“在文件树中查看”，会切换到文件树，逐级展开通往这张图的父文件夹，并选中、滚动到对应文件。无需逐个手动展开目录。
+画板顶部显示素材路径、尺寸和来源。信息较长显示不全时，把鼠标放在这块信息区域，用滚轮上下查看。
+
+四、把三个包拼成一个：合成台怎么用
+
+先选一个你最喜欢的资源包，右键“加入项目”，或者直接拖到合成台，把它当作底包。再从其他包挑素材加入项目。你也可以不这么做，缺失底包的情况下，目录也会自动补全。
+
+例如你可以这样摆：
+
+最上面：包 A 的准心部件。
+（部分素材比如icons或者低版本的粒子，它是一整个图片。但是我们往往希望单独编辑它们的某一部分，McPs允许将图片各部分的内容拆分单独处理，称为部件。）
+中间：包 C 中想要的武器贴图或对象。
+再下面：包 B 中想要的方块素材。
+最底下：作为基础的完整材质包。
+
+上面的项目项优先覆盖下面相同位置的内容。单张贴图覆盖对应文件；准心这样的图集部件只覆盖对应区域。下面没有被盖住的部分继续使用底包。
+
+注意，判断覆盖的是资源路径和部件位置，不是列表里显示的名字。两个文件都叫“剑”，不代表它们会互相覆盖。
+
+通过合成台调整项目项顺序和勾选状态。临时不想用的内容，先取消启用；这样比较效果比删掉再导入方便。
+
+“加入项目”会建立独立副本。之后改素材库，不会自动更新已经加入合成台的那一份；修改合成台的副本，也不会同步改素材库。
+
+准心如果藏在 icons.png 里，优先加入准心部件，而不是整张 icons.png。不同分辨率和版本的图集，软件会按已支持的布局做适配；遇到需要你确认布局或目标位置的情况，按实际内容选择。不能识别的图集仍需要手动确认，不能把所有图都当作同一种布局。
+
+五、替换现有素材，而不只是叠上去
+
+有时你并不想增加一个项目项，只想把某个位置换成另一张图片。
+
+到文件树中，在作为来源的素材上右键“选中”，再到目标素材上右键“替换为选中”。这里的“选中”是指定替换来源，与画板框选像素是两回事。
+
+选择器里没有这两个替换选项。需要替换时，先跳到文件树。
+
+软件会检查素材类型、部件数量或帧尺寸。选项置灰时，可以悬停查看原因。删除素材时也留意影响范围，相关项目内容可能一起受到影响。
+
+六、先导出一个能在游戏里用的包
+
+确认合成台的顺序和勾选后，点击合成台底部的“导出”。
+
+选择目标版本，填写 ZIP 文件名和描述，按需要上传、裁剪封面。游戏里的包名来自 ZIP 文件名；描述首行和后续行共同组成包描述。想加文字颜色或样式，用旁边的 § 按钮。
+
+如果有软件还不知道该放到哪里的独立素材，导出流程会让你指定目标位置，或者排除这项。看到“应用到素材库”时，那是保存目标映射的额外选项，不是每次导出都必须勾选。
+
+如果导出图集时缺少其他部件，可以根据提示选择用下层素材、原版素材补齐，或保留透明／缺失区域。原作者故意做透明的地方，通常不该随手补成原版。
+
+导出完，把 ZIP 放进目标 Minecraft 实例的 resourcepacks 文件夹，在游戏中启用。检查准心、背包界面、方块、武器、动画和音效是否符合预期。
+
+导出窗口中的“报告与记录”用来查这一次转换了什么、跳过了什么、有没有缺失引用。软件新生成的转换报告保存在软件里，不会作为额外报告塞进材质包 ZIP。
+
+画板右上角也有“导出”，但那个只导出当前 PNG。导出整包要用合成台底部的按钮。
+
+七、同一个资源包，换个游戏版本继续用
+
+如果你习惯在 1.8 和 1.20 之间切换，可以用同一个项目分别导出不同版本。
+
+比如导入一个 1.8 的包，确认它的来源版本，把喜欢的内容加入合成台，导出时选择下拉框里的 1.20 目标版本。软件会处理已支持的路径变化、图集拆分或拼接、相关配置等差异，而不只是把版本声明改一下。
+
+来源版本识别错了，可以在素材右键菜单中通过“源版本（识别／校正）”修正。来源证据不足或几个版本共用格式时，需要你根据包的实际用途判断。
+
+如果只是整理同一版本的包，可以选择“保留原始格式（跟随底包）”。底包版本能确认时，上层素材按底包适配；底包不明确时，它并不等于自动解决所有跨版本问题。
+
+当前程序列出的目标版本：
+1.7.10、1.8.9、1.9.4、1.12.2、1.13.2、1.14.4、1.15.2、1.16.5、1.18.2、1.19.2、1.20.1、1.20.4、1.20.6、1.21.1、1.21.11、26.2、26.3。
+
+常规贴图适配与复杂模组效果是两回事。自定义模型、特殊天空、CIT、连接纹理或着色器配置，可能依赖特定客户端或模组。导出后仍应在实际使用的游戏环境里检查。报告中的“跳过”和“缺失引用”也值得看一眼。
+
+八、以后还要继续改：保存项目
+
+导出的 ZIP 是给游戏用的，.MCPSD 项目文件是给自己继续制作用的。做好一个阶段，按 Ctrl+S 保存项目。
+
+“打开项目”或 Ctrl+O 可以继续上次的制作。“打开项目文件夹”会在系统文件管理器中打开项目存放位置。旧的 .packstudio 项目也可以读取。
+
+这里的“项目另存为”（Ctrl+Shift+S）按本软件当前设计，只额外保存一份副本。保存后，你还在编辑原来的项目，当前保存路径和未保存状态保持不变。如果想接着编辑刚保存的那份，需要再打开它。
+
+退出时如果项目有未保存修改，会出现“保存／不保存／取消”：保存后退出；不保存则放弃本次未保存的项目修改；取消则继续留在软件里。素材库直接编辑的内容采用自己的自动保存方式，不要把“不保存项目”理解为撤销素材库编辑。
+
+软件会提前写入 projects 目录下的 Recovery-*.MCPSD 恢复副本。异常退出后，可以尝试打开最后成功写入的副本继续制作。正常保存或明确放弃并退出后，会清理本次恢复副本。恢复只能到最近一次完整写入，重要阶段还是主动保存。
+
+九、开始自己动手：先看懂画板
+
+打开一张 PNG、一个图集部件或一帧动画，画板就显示当前编辑范围。左上方文件信息可以帮助你确认正在改素材库还是项目副本。
+
+指针工具用于观察和移动。选中它后，Alt＋滚轮围绕鼠标位置缩放；中键拖动平移；右下角百分比可以直接输入。没有选区时，左键拖动也可平移画布。有选区时，指针可以移动选中的像素，按 Enter 放置。
+
+图片后面的灰白格表示透明背景。
+
+画板右上角“重置”恢复本次打开这张素材时的状态，不是换回 Minecraft 原版。正在编辑图集部件或动画单帧时，重置对应当前编辑部分；重置也可以撤销。
+
+十、只想改一小块：选区工具
+
+矩形选区：左键拖出范围。Shift 加选，Alt 减选，Esc 取消选区。也可以从图外开始框住边缘；用矩形工具在图外单击可清除选区。
+
+右键矩形图标，可以切换魔法矩形。它同样先框范围，再只选其中非透明的像素。比如给武器换色时，能避开周围的透明背景。
+
+魔棒：点击一种颜色，按容差选择相近颜色。右键可以调整容差、连续性和消除锯齿等选项。连续选择只找相连区域，关闭连续性可找范围内其他位置的相近颜色。Shift 和 Alt 同样可补选、减选。
+
+普通矩形适合明确框住一个部位，魔法矩形适合保留透明轮廓，魔棒适合从颜色入手。需要复杂范围时，可以组合使用。
+
+十一、画笔、橡皮、填充和取色
+
+画笔：用当前颜色画像素。右键设置粗细、不透明度及颜色。
+
+橡皮擦：把经过的像素擦成透明。右键工具图标，可以选择普通橡皮擦或魔术橡皮擦；再右键菜单中的“橡皮擦”，可以设置大小。
+
+魔术橡皮擦：点一下，擦除点击处相同颜色的相连区域。有选区时限制在选区内。
+
+油漆桶：给点击处相同颜色的相连区域换色。有选区时，只在选区内寻找相连区域。当前油漆桶使用所选颜色的 RGB，并写入完全不透明的颜色。
+
+填充：右键油漆桶图标切换。点击画板，整个选区都填成当前颜色，包括分开的小块和选中的透明像素；没有选区就填满当前编辑视图。填充采用当前颜色的不透明度。
+
+吸管：从当前图片取色。右键图标选择“屏幕吸色”，可以从屏幕其他位置取色。
+
+加深／减淡：在已有像素上局部压暗或提亮。
+变明／变暗：另一组明暗调整，适合直接提高或降低亮度。两组工具都可通过右键菜单切换，在相应选项上再次右键调整幅度。
+
+色板中的颜色槽左键使用，右键修改。拾色窗口可以通过 HEX、RGBA、HSVA 或色板选色，左下角不透明度可以直接调。
+
+画笔的不透明度与颜色的不透明度分开计算。画笔默认 255，最终像素 Alpha 约等于“颜色 Alpha × 画笔不透明度 ÷ 255”。例如颜色半透明、画笔全强度，画出来仍是半透明。透明像素、半透明像素与完全不透明像素的区别，在制作玻璃、特效和 GUI 时尤其有用。
+
+十二、想做渐变，或给贴图换个整体色调
+
+渐变工具解决“从这里的颜色过渡到那里的颜色”。左键选中工具后，在画板按住左键，从起点拖到终点，松开直接应用。有选区只改选区，无选区处理当前视图。默认黑到白，操作可以撤销。
+
+右键渐变图标，有两个设置入口：
+颜色设置：选择起点和终点颜色，两个色块在同一窗口中编辑。
+过渡设置：调整中点、过渡宽度、平滑或阶梯效果，也可以用曲线编辑器调整颜色过渡的节奏。曲线左键添加／拖动内部点，右键删除。重置过渡会恢复数值，保留当前模式和端点颜色。
+
+调色工具解决“已有的这张图，该怎么换风格”。例如保留剑刃的明暗纹理，把银灰改成紫色。
+
+明暗渐变：把原图暗处和亮处对应到两个目标颜色，适合统一色调。它按原图亮度处理，与拖拽渐变按位置处理不同。
+透明度：按百分比调整已有透明度，100% 保持原样，0% 完全透明。
+颜色／色彩平衡：用青↔红、品红↔绿、黄↔蓝调节整体颜色倾向。
+颜色／分色调整：先选红、黄、绿、青、蓝或品红色域，再改色相、饱和度和明度，适合主要调整某一种颜色。
+
+单图调色可以选自动范围、非透明像素或适用的动画全部帧流程。自动范围就是有选区用选区，没有就处理当前视图。
+
+点击“预览调色”检查效果，“应用”才提交；“取消预览”恢复实际图片。参数改变后，需要重新预览。
+
+十三、整套方块都想偏暖一点：批量调色
+
+对素材库或项目中适用的包、文件夹、完整 PNG 右键“批量调色”。例如从 block 文件夹进入，左边文件树就从 block 开始。
+
+先勾选要处理的文件夹或图片。点击一个文件名只是查看它，勾选才决定哪些图片最终一起修改。
+
+下方提供与单图调色相同的明暗渐变、透明度、色彩平衡和分色调整。拖动参数或切换图片，当前图片会自动预览，不需要先生成整批预览。
+
+检查几张有代表性的图片，满意后点“应用”，确认范围，再等待整批处理完成。“取消”放弃尚未应用的效果。耗时处理会显示进度，能取消的阶段可以停止。
+
+批量调色处理勾选 PNG 的整张图片，不使用主画板选区。动画长图也按整张 PNG 处理，原有播放配置保留。想只改动画某个部位，应使用单帧编辑或逐帧确认的调色流程。
+
+十四、改错了怎么办：撤销与历史记录
+
+小范围画图、选区等操作，可以用右下角箭头或 Ctrl+Z 撤销，Ctrl+Shift+Z 重做。
+
+遇到批量修改、素材操作或某些大图操作，画板撤销会在边界停住。这时打开“窗口 → 历史记录”，从完整操作顺序中处理。
+
+点击可预览的图像记录，画板和预览区会临时显示对应状态。仅点击查看不会回滚文件，关闭历史窗口会退出这次预览。
+
+“回滚一步”处理最近一步；“回滚到选定操作”恢复到选中操作完成后的状态。资源已发生冲突或记录过期时，以界面可用状态和提示为准。
+
+历史只保留当前会话中的有限记录，另存项目不等于保存整段历史。打开其他项目会重置时间线，新操作也会清除原来的重做分支。需要长期保留的阶段，请保存项目副本。
+
+十五、动画、天空、模型和声音
+
+有些 PNG 是一长条动画帧。软件识别到配置后，可以在“单帧编辑”和“完整 PNG”之间切换，播放预览，点击帧卡编辑或替换其中一帧。未确认的非方形图片可以通过“确认帧尺寸”建立帧视图，先确认它确实是动画。
+
+弓的拉弓状态等关联图片是不同状态文件，不一定是按时间播放的动画。
+
+单图调色中的“动画全部帧”会让你分析并确认各帧范围，再统一处理；它与整张 PNG 的批量调色不同。
+
+天空和高清图片可以在允许的尺寸范围内按原分辨率编辑。识别到支持的天空布局时，可在预览中环视；布局未确认时使用平面预览。大图可能需要确认或等待计算。
+
+右侧模型预览帮助检查贴图贴在物体上是什么样。可以自动识别，也可以按分类或物品／方块 ID 查找。左键拖动旋转，中键平移，Alt＋滚轮缩放。它是辅助预览，复杂模型、游戏光照、天空天气和扩展效果仍以游戏内表现为准。
+
+导入或选中 OGG 音效后，可在预览区试听、停止，并使用适用的替换操作。声音定义可能关联多段音效，加入项目时有时会同时包含相关定义和依赖文件。
+
+十六、把工作区摆顺手
+
+素材库、合成台、画板、预览、配置规则等面板可以拖动标题栏调整位置。拖到别的面板边缘短暂停留，看到停靠预览后松手，就能放在相邻位置；也可以拖成浮窗。
+
+软件始终只有一个画板。把它拖出去只是换成窗口显示，并不会在原位置再创建一个。
+
+“窗口”菜单可以开关面板，也能“恢复默认工作区”。关联素材可从这里手动开关。设置、历史记录、渐变和调色等工具窗口按各自用途独立打开，渐变与调色从工具栏进入。
+
+顶部地球图标切换中英文。设置里可以开关像素标尺，选择可选外部原版素材目录，或者恢复内置素材。外部目录覆盖已支持版本的同名资源，缺少的继续用内置资源；添加目录本身不会增加新的版本支持。
+
+下面这些是进阶功能。只是拼包和画图的话，可以用到时再看。
+
+十七、配置规则：为什么图片明明在，游戏里却没显示
+
+一张贴图有时不靠文件名单独生效，而是被模型、动画或其他配置引用。例如同一物品在特定条件下换图，或者几个模型共用一张纹理。
+
+打开“窗口 → 配置规则”，可以查看与当前素材有关的配置。上方是只读文件树，点一个文件，下方有三个页签：
+
+规则说明：把能识别的字段和条件解释给你看。
+原始配置：显示文件原文，方便核对作者实际写了什么。
+引用证据：查看哪些资源被引用，在哪里找到，哪些还缺失。
+
+勾选“列出来源全部配置”，可以进一步翻看整个来源包的配置。它们不一定都与当前图片有关。
+
+这里主要用于排查和理解资源关系，不是配置编辑器。只想换一张剑的颜色，不必先学这些；图片找不到、特效不生效、转换报告提示缺失引用时，它就有用了。
+
+十八、材质派生：同一把剑的风格，做出其他材质
+
+假设你做了一把很喜欢的铁剑，想要同样形状、同样像素风格的金剑或钻石剑。右键支持的素材，打开“同系列调色派生”。
+
+左侧列出可用目标，点击查看，勾选决定最后生成哪些。三张对照图分别是当前来源、目标参考和派生结果。
+
+来源图决定形状、尺寸和原有的明暗分布；目标参考用来提取暗部、主体、高光三段颜色。这样即使参考图分辨率不同，也不用把它的形状硬套到你的剑上。你还可以直接修改这三个颜色，色阶条显示它们之间的过渡。
+
+线框标出来源的换色范围和参考图的取色范围。先检查刀刃、柄和装饰是否划分正确，再看结果。识别是辅助，个性化轮廓或复杂配色可能需要手动修正。
+
+点击“调整换色区域”，可以用魔法矩形、魔棒、笔和橡皮修正。该窗口默认矩形模式是魔法矩形，笔与橡皮默认 1 像素；笔、橡皮右键可调大小。Shift 补选，Alt 减选；指针只用于平移与缩放，不移动选中像素。
+
+邻色偏差用来向相连的相近颜色扩展，适合补上遗漏的边缘。强度可以直接输入百分比。“恢复参考色”重新取回目标参考的色阶。
+
+满意后“加入合成台”，生成独立项目内容。派生不会自动猜出你过去每一步是调亮、改色还是画了新像素，也不是按历史操作重做其他武器。它更适合以当前这张图为基础，制作同风格的材质变体。
+
+十九、共用变体与自定义名称
+
+“查看材质共用变体”用于查看楼梯、台阶、栅栏、墙等结构是否通过模型引用共用基础贴图。比如一块木板的贴图改了，引用它的楼梯也可能跟着变；这种情况往往不需要再做一张“楼梯 PNG”。软件按找到的引用关系展示内容，并可把基础材质及来源内关联资源一起加入项目。
+
+如果你习惯用自己的叫法找素材，设置中可以打开“命名配置副本”，调整名称和搜索标签，再点“重新加载命名与搜索规则”。需要重来时，可以重置命名副本。名称只是方便查找，不改变游戏资源编号。
+
+设置里也有版本、编号与名称对照文档，适合核对同一资源在不同版本里的叫法和位置。
+
+最后，把项目和游戏成品都留好
+
+制作时保存 .MCPSD，玩游戏时使用导出的 ZIP。拿不准的地方先在合成台试，再看预览和报告，最后进游戏确认。这样下次想换准心、换武器或换版本，只要继续打开项目，不必再从头拆包。
+
+
+============================================================
+ENGLISH GUIDE
+============================================================
+
+Minecraft PackStudio: Make one pack from the parts you like
+
+This guide covers Minecraft PackStudio, including the model fixes and Selector interaction updates.
+For the packaged application, extract the complete McPackStudio folder and run MCPS.exe. Keep the accompanying _internal folder. No separate Python installation is needed.
+For the source edition, install Python 3.13 and run start.cmd in the source folder. The first run downloads the required dependencies. Both editions include vanilla reference assets for the supported versions.
+
+1. Why use Pack Studio?
+
+Imagine you like the crosshair from one pack, the blocks from another, and the weapons from a third.
+
+Changing pack priority in Minecraft works for entire resource files. It does not conveniently combine separate parts of the same image. In older versions, for example, the crosshair shares icons.png with hearts, armor and other HUD icons. Copying that whole file changes more than the crosshair. Different resolutions add cropping, scaling and alignment work.
+
+Pack Studio lets you find the parts you want, put them into a composition, arrange their priority and export one pack. You can also edit textures and export supported resources for another game version.
+
+The current application supports Java Edition resource packs. Bedrock support has not been added yet.
+
+2. Bring your packs into the library
+
+Drag a ZIP or folder into the application, or use the Import menu. Individual PNG images and OGG sounds can also be imported.
+
+The library is your collection of source materials. Importing a pack does not automatically include everything in your exported pack.
+
+The application keeps an internal copy of imported resources. Direct library edits are saved to that copy; the original external ZIP is not the normal editing destination. To make changes only for a particular composition, add the resource to the project and edit the project copy.
+
+For a packaged installation, extract the complete application folder and run its EXE. Keep the accompanying _internal folder. The packaged application does not need a separate Python installation. Supported vanilla assets are built in.
+
+3. Find the crosshair, blocks and weapons
+
+Use File tree when you know where a file belongs. It follows the resource folders and includes images, sounds and configuration files. Supported atlases can be expanded into components such as crosshairs, hearts and other HUD elements.
+
+Use Selector when you would rather browse game objects and categories. An object may have several related textures: a bow has drawing states, while armor can have an inventory icon and worn textures.
+
+Related assets below the canvas let you switch between those images. Editing one does not automatically edit the others.
+
+Search by name, path or component, and narrow the results with the version dropdown. Enable Show vanilla resources to browse the built-in references. To use or edit a vanilla resource, first create a copy in the project. After finding a specific PNG in the Selector or the related-assets strip, right-click Show in file tree. The application switches to the file tree, expands the parent folders leading to that image, selects it and scrolls it into view.
+The information area above the canvas shows the texture path, dimensions and source. If the text does not fit, place the pointer over this area and scroll up or down to read the rest.
+
+4. Build a composition
+
+Choose a favorite resource pack as your base. Right-click it and choose Add to project, or drag it directly into the composition. Then add selected resources from other packs. You can also work without a base pack; the directory structure is filled in automatically.
+
+Higher entries in the composition take priority when entries supply the same resource. Moving entries changes the result. A component replaces its supported atlas region; a complete image replaces that image. Disable an entry to compare the result without removing it.
+
+For example, arrange the entries like this:
+
+Top: the crosshair component from pack A.
+(Some resources, such as icons.png or older particle atlases, contain many elements in one image. McPs lets you split these elements into individually editable parts called components.)
+Middle: the weapon textures or objects you want from pack C.
+Below those: the blocks you want from pack B.
+Bottom: a complete resource pack as the base.
+
+Overrides are determined by resource paths and component positions, rather than display names. Two files both named Sword do not necessarily replace each other.
+
+Project entries are separate working copies. You can adjust them for this composition while keeping the library version available.
+
+Supported atlas rules handle component placement and resolution differences. Unusual custom layouts still need checking; the application cannot infer every pack author's layout.
+
+5. Replace an existing resource
+
+In the file tree, Select and Replace with selected provide a way to choose a replacement source and use it for another compatible resource. This resource choice is different from a pixel selection on the canvas.
+
+The application checks resource compatibility. If an operation is unavailable, inspect its explanation instead of assuming any two files are interchangeable. The Selector does not expose these replacement commands.
+
+Removing library resources may also affect project items that depend on them. Check the items involved before removing a source you still need.
+
+6. Export a pack for the game
+
+Export from the composition to create a resource-pack ZIP. Choose the target version, filename and description, and optionally set the cover image. Description formatting supports section-sign color codes where applicable; an ampersand is not automatically a color code.
+
+Resources with unknown mappings may need a target assignment or exclusion. A mapping can optionally be saved to the library for later use. For incomplete atlases, the available fill choices determine whether missing parts come from lower-priority entries, vanilla resources or remain unfilled. Empty transparent regions may be intentional.
+
+Review any export report, then put the ZIP in Minecraft's resourcepacks folder and test it in the target version. Reports are separate from the game pack.
+
+The canvas Export button saves the current image as PNG. It is not the same as exporting the complete composition.
+
+7. Use a favorite style in another version
+
+For example, you can prepare supported resources from an older 1.8-era pack for a 1.20-era target. First check the detected source version. The source-version identification and correction menu lets you fix an incorrect detection.
+
+Choose the target version during export. Conversion uses supported resource identities, paths, atlas layouts and configuration rules; it is more than changing pack_format.
+
+The current target list is: 1.7.10, 1.8.9, 1.9.4, 1.12.2, 1.13.2, 1.14.4, 1.15.2, 1.16.5, 1.18.2, 1.19.2, 1.20.1, 1.20.4, 1.20.6, 1.21.1, 1.21.11, 26.2 and 26.3. This is the application's supported target list.
+
+Preserving the original version follows the base resources. Special models, custom rendering and extension-specific features may not translate completely. Check the report and verify the exported result in the game.
+
+8. Save your work for later
+
+Save Project, or Ctrl+S, writes an .MCPSD project for continued editing. The exported ZIP is for the game. Open Project, or Ctrl+O, resumes your work. Open Project Folder opens the project's storage location in your system file manager. Older .packstudio projects can also be opened.
+
+Save As, or Ctrl+Shift+S, saves a separate copy. It does not switch the current project to that new file or clear the current project's unsaved state. Open the new copy explicitly if you want to continue working in it.
+
+When closing a project with unsaved changes, choose Save, Don't Save or Cancel. Cancel keeps the project open. Canceling a save dialog or a failed save does not count as a successful save.
+
+Library autosaving and project saving are separate. Recovery snapshots in the projects area help recover work after a crash or forced termination. They contain the last successfully written recovery state, which may not include the very last action. Recovery projects can be opened like other projects.
+
+9. Get comfortable with the canvas
+
+The canvas may show a full image, an atlas component or an animation frame. Check the file information to know what you are editing. The checkerboard represents transparency.
+
+Use the pointer tool to navigate. Alt plus the mouse wheel zooms with the pointer tool; the middle mouse button pans. Left dragging can pan when there is no active pixel selection. With an editable selection, it can move selected pixels; Enter confirms that move.
+
+Reset restores the relevant image or editing scope to its opened state, rather than replacing it with a vanilla texture. The change can be undone.
+
+10. Select only the pixels you want to change
+
+Rectangle selection: drag with the left mouse button to mark an area. Hold Shift to add to the selection or Alt to subtract from it. Press Esc to clear it. You can start a rectangle outside the image to include edge pixels; clicking outside the image with the rectangle tool clears the selection.
+
+Magic rectangle selects the nontransparent pixels within the rectangle. The magic wand selects similar colors, with controls for tolerance, connected regions and edge behavior.
+
+Combine these tools when one selection is not enough. A selection can contain separate islands. Tools that honor selections affect those selected pixels instead of the entire editing area.
+
+11. Paint, erase, fill and sample colors
+
+Brush paints with the current color. Right-click its tool controls to change size and brush opacity. Color opacity and brush opacity are separate: their normalized values multiply to determine the opacity of the paint being applied. The brush starts at full opacity.
+
+Eraser and Magic eraser share a tool menu. Right-click the eraser entry to set its size. The normal eraser removes pixels along a stroke; the magic eraser works on connected matching areas.
+
+Paint bucket fills a connected matching region. The current bucket implementation uses an opaque fill color. Its second mode, Fill, fills the entire active selection, including separate selected islands, using the current color's opacity. With no selection, Fill affects the current editing area.
+
+Eyedropper samples from the image. Screen color picker samples a visible screen color. Choose between them from the tool's right-click menu.
+
+Burn and Dodge adjust darker or lighter appearance; their related lightening and darkening controls expose strength settings through the tool menus.
+
+Click a color slot to use it. Right-click to edit it in the color picker. RGBA, HSVA, HEX and palette controls offer different ways to set the same color. Opacity can be adjusted directly.
+
+12. Make a gradient or change the overall tone
+
+The gradient tool works by dragging from one endpoint to another on the canvas. Release to apply it. It affects the selection when one exists, otherwise the current image area. The default endpoint colors are black and white.
+
+Right-click the gradient tool for color settings or transition settings. Transition controls include midpoint, transition width, smooth or stepped behavior, and a curve editor. Reset restores values while retaining the selected transition mode and colors.
+
+Recolor is a separate tool. Its luminance gradient maps dark and light parts to chosen colors. Opacity changes transparency. Color offers overall color balance and adjustments to individual color ranges.
+
+Use the scope control for the appropriate area, preview the result, then Apply or Cancel preview. These preview controls belong to recoloring; the dragged spatial gradient applies directly and can be undone.
+
+13. Give a whole folder a consistent style
+
+Open Batch recolor from a folder or resource. Its file tree starts at the chosen folder, so you do not have to browse through unrelated parents.
+
+Check folders or PNG files to choose what will be processed. Clicking an image chooses the image you are inspecting; checking it chooses whether it belongs in the batch.
+
+Batch recolor uses the same kinds of color adjustments. Changing a setting or switching images updates the current image preview. This lets you test a warmer block palette or a cooler set of weapons without repeatedly generating a full batch preview.
+
+Apply starts processing the checked images at their original resolution, with confirmation and progress feedback. Batch processing works on complete PNG images and does not borrow the main canvas's selection. Animated sheets are processed as images while their animation configuration is retained.
+
+14. Undo mistakes and inspect history
+
+Use Undo, Redo and the history window to revisit changes. Selecting a history entry temporarily previews its state in the editor and preview area. Closing the history window clears that temporary selection and preview.
+
+Rollback one step goes back one action. Rollback to the selected operation restores the state after that operation. Some application-wide changes form history boundaries and cannot be crossed like ordinary brush strokes.
+
+History has size limits and belongs to the current session; it is not a permanent edit recipe stored inside the project. Editing after rolling back starts a new branch, so incompatible redo steps are discarded.
+
+15. Animations, skies, models and sounds
+
+For animated textures, inspect individual frames or the full PNG sheet and use playback where supported. Manual frame sizing is useful when the image really is an animation and automatic interpretation is unsuitable.
+
+A bow's drawing states are related source images, not necessarily a timed animation. Clicking a state opens that source image for editing.
+
+Skies and high-resolution images can be edited at their original resolution within the supported size limits. Recognized sky layouts support looking around in the preview; unconfirmed layouts use a flat preview. Large images may require confirmation or additional processing time.
+
+The model preview shows how textures look on an object. Use automatic detection, browse categories, or search by item or block ID. Drag with the left mouse button to rotate, use the middle button to pan, and hold Alt while scrolling to zoom. Complex models, game lighting, sky weather and extension effects should be checked in the game.
+
+The All animation frames option in single-image recoloring analyzes each frame and asks you to confirm its region before applying the adjustment. This differs from batch recoloring an entire PNG sheet.
+
+OGG resources can be previewed, stopped and replaced. A sound's references and configuration still matter; replacing a file alone does not create every possible in-game sound rule.
+
+16. Arrange the workspace
+
+Drag panel title bars to rearrange or float panels. Pause near a docking edge to place a panel. Window-menu controls and layout reset help restore the workspace.
+
+There is only one canvas. Floating it moves that same canvas into a window; it does not create another independently editable document.
+
+Use the language control for Chinese or English. Settings include image rulers and optional external vanilla assets. External assets override matching resources for already supported versions; missing resources fall back to built-in assets. An external folder does not by itself add support for a new version.
+
+17. Configuration rules: when having a PNG is not enough
+
+Some textures work because a model, animation or other configuration refers to them. A correctly named image can still fail to appear if those references are missing or incorrect.
+
+Configuration rules provides a read-only file tree and views for the rule explanation, raw configuration and reference evidence. Start with configurations linked to the selected resource. The option to list all source configurations broadens the list; it does not mean every listed file affects that resource.
+
+Use this view to understand dependencies or investigate missing textures. You do not need it for ordinary painting, and the view itself does not edit those files.
+
+18. Material derivation: make other materials in the same style
+
+Suppose you have a custom iron sword whose shape you like and want gold or diamond variants with that same shape.
+
+Material derivation uses the source image as the shape, resolution and shading basis. A target reference supplies material colors. It does not simply paste the target sword over yours.
+
+Choose a supported material family and inspect a target. Checking a target includes it in the output; selecting it changes the preview. The source, reference and derived-result views help you compare them. Outlines indicate the relevant recolor regions.
+
+Adjust the recolor area if the automatically proposed region includes the grip or misses part of the blade. Rectangle and magic-wand tools can add or subtract areas. Brush and eraser allow pixel-level corrections; both start at one pixel, and the rectangle starts in magic-rectangle mode. The pointer in this dialog is for panning and zooming, not moving selected image pixels.
+
+Shadow, midtone and highlight controls define the material color ramp. Strength controls how much of the change is applied. Neighbor-color tolerance can include nearby similar colors; inspect the result as you adjust it. Restore reference colors returns to the reference palette.
+
+Add to composition creates the selected variants as independent project resources. Results retain the source dimensions, so different reference resolutions do not require copying pixels at matching coordinates.
+
+This is a guided recoloring workflow. It cannot reliably infer every intended material region or reconstruct an author's editing intentions from imported pixels or session history. Manual region correction is useful for detailed weapons and mixed-material decorations.
+
+19. Shared variants and custom names
+
+View shared material variants shows whether stairs, slabs, fences, walls and similar structures share a base texture through model references. For example, editing a plank texture may also change stairs that reference it, so a separate stair PNG may be unnecessary. The application displays the references it finds and can add the base material and related resources from the same source to the project together.
+
+Custom naming and search settings let you use names that are easier to recognize. Open the user configuration copy, edit it, then reload the rules. Reset restores the supplied naming configuration. These names do not change resource identities or game paths.
+
+The version, identity and name reference tables are useful when you need to compare names and locations across versions.
+
+Keep both kinds of files
+
+Save an .MCPSD while making the pack, and use the exported ZIP in Minecraft. Next time you want another crosshair, a different weapon set or another target version, reopen the project instead of taking every source pack apart again.

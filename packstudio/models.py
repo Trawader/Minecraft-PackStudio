@@ -78,7 +78,7 @@ class ModelLibrary:
         return self.files.get(path) or self.vanilla.get(version,path)
     def update(self,files,version=None):
         self.version=version or self.version
-        signature=(self.version,tuple(sorted((p,data) for p,data in files.items() if '/models/' in p or '/blockstates/' in p or '/items/' in p)))
+        signature=(self.version,tuple(sorted((p,data) for p,data in files.items() if p.endswith('.json') and any(part in p.split('/')[2:-1] for part in ('models','blockstates','items')))))
         self.files=files
         if signature==self.signature:return
         self.signature=signature;self.cache={};self.entries={};self.texture_index={};self.issues=[]
@@ -124,7 +124,7 @@ class ModelLibrary:
             else:raise ValueError(f'Missing parent: {path}')
         own=json.loads(data.decode('utf-8-sig'));parent=own.get('parent');base={}
         if parent and not parent.startswith(('builtin/','minecraft:builtin/')):
-            base=self.resolve(resource(parent,namespace=path.split('/')[1]),trail+(path,))
+            base=self.resolve(resource(parent),trail+(path,))
         model={**base,**own};model['textures']={**base.get('textures',{}),**own.get('textures',{})}
         model['_namespace']=path.split('/')[1];model['_parents']=base.get('_parents',[])+([parent] if parent else [])
         self.cache[path]=model;return model
@@ -135,7 +135,7 @@ class ModelLibrary:
             seen.add(value);value=model.get('textures',{}).get(value[1:],'')
         if isinstance(value,dict):value=value.get('sprite','')
         if not isinstance(value,str):return ''
-        return resource(value,'textures',model['_namespace']) if value else ''
+        return resource(value,'textures') if value else ''
     def identify(self,path,image=None):
         stem=Path(path).stem.lower();lower=path.lower()
         if '/entity/' in lower or '/models/armor/' in lower:
@@ -183,7 +183,7 @@ class ModelLibrary:
             data=json.loads(definition).get('model',{})
             # Dynamic conditions need game state; do not arbitrarily choose a branch.
             if data.get('type') in ('minecraft:model','model'):
-                path=resource(data['model'],namespace=ns)
+                path=resource(data['model'])
                 if path in self.entries:return path
         for kind in ('block','item'):
             path=resource(f'{kind}/{name}',namespace=ns)
@@ -196,7 +196,7 @@ class ModelLibrary:
                 value=value[0] if isinstance(value,list) else value
                 model=value.get('model','')
                 for candidate in (model,'block/'+model):
-                    path=resource(candidate,namespace=ns)
+                    path=resource(candidate)
                     if path in self.entries:return path
         normalized=name.replace('_',' ').lower()
         if name in ANVIL_IDS:return resource('block/'+ANVIL_IDS[name])

@@ -8,7 +8,9 @@ Minecraft PackStudio 是面向 Minecraft Java 版资源包的桌面编辑器，�
 
 源码运行环境：Windows、Python 3.13、PySide6 6.12.0。
 
-双击 `start.cmd` 启动。首次运行时，脚本创建 `.venv` 虚拟环境并安装 `requirements.txt` 中的依赖。内置原版素材、工具图片和模型已经包含在仓库中，无需另行补齐。
+双击 `start.cmd` 启动。首次运行时，脚本创建 `.venv` 虚拟环境并安装 `requirements.txt` 中的依赖。内置原版素材、工具图片和模型已经包含在源码中，无需另行补齐。
+
+按实际使用流程编写的中英文说明见分发文件夹中的 `Help.txt`。
 
 也可以在本目录执行：
 

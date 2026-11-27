@@ -5,6 +5,32 @@ from PySide6.QtGui import QImage,QPixmap,QColor,QAction
 from .appearance import tool_icon
 
 
+class CaptionScroll(QScrollArea):
+    """Keep file details compact while making wrapped overflow accessible."""
+    def __init__(self,caption):
+        super().__init__();self.pending=False
+        self.setFrameShape(QScrollArea.Shape.NoFrame)
+        self.setWidgetResizable(False)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.setFixedHeight(42);self.setSizePolicy(QSizePolicy.Policy.Ignored,QSizePolicy.Policy.Fixed)
+        caption.setMaximumHeight(16777215);caption.setWordWrap(True)
+        caption.setAlignment(Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+        policy=QSizePolicy(QSizePolicy.Policy.Ignored,QSizePolicy.Policy.Preferred)
+        policy.setHeightForWidth(True);caption.setSizePolicy(policy)
+        self.setWidget(caption)
+        caption.installEventFilter(self);self.viewport().installEventFilter(self);self.schedule()
+    def eventFilter(self,obj,event):
+        if event.type() in (QEvent.Type.Resize,QEvent.Type.LayoutRequest,QEvent.Type.Show,QEvent.Type.Paint):self.schedule()
+        return super().eventFilter(obj,event)
+    def schedule(self):
+        if self.pending:return
+        self.pending=True;QTimer.singleShot(0,self.adjust_content)
+    def adjust_content(self):
+        self.pending=False;width=max(1,self.viewport().width())
+        height=max(self.viewport().height(),self.widget().heightForWidth(width))
+        self.widget().resize(width,height)
+
+
 class ControlSizer(QObject):
     def __init__(self,panel,content,scroll):
         super().__init__(panel);self.panel=panel;self.content=content;self.scroll=scroll;self.pending=False
@@ -82,11 +108,11 @@ def install(window):
     export_button=QPushButton('导出');export_button.setFixedSize(54,24);export_button.setToolTip('导出当前 PNG')
     export_button.clicked.connect(action.trigger);action.changed.connect(lambda a=action:export_button.setEnabled(a.isEnabled()))
     window.export_png_button=export_button
-    caption_row.addWidget(window.caption,1);window.caption.show();window.caption.setWordWrap(True)
+    window.caption_scroll=CaptionScroll(window.caption)
+    caption_row.addWidget(window.caption_scroll,1);window.caption.show()
     reset_button=QPushButton('重置');reset_button.setFixedSize(54,24);reset_button.setToolTip('重置当前素材')
     reset_button.clicked.connect(lambda:window.run(window.canvas.reset_current))
     caption_row.addWidget(export_button);caption_row.addWidget(reset_button);window.reset_material_button=reset_button
-    window.caption.setMaximumHeight(42);window.caption.setSizePolicy(QSizePolicy.Policy.Ignored,QSizePolicy.Policy.Preferred)
     area=QWidget();layout.addWidget(area,1);row=QHBoxLayout(area);row.setContentsMargins(0,0,0,0);row.setSpacing(5)
     tools=QWidget();column=QVBoxLayout(tools);column.setContentsMargins(0,0,0,0);column.setSpacing(2)
     scroll=QScrollArea();scroll.setWidgetResizable(True);scroll.setWidget(tools);scroll.setFrameShape(QScrollArea.Shape.NoFrame)

@@ -61,7 +61,9 @@ class ResourceGraph:
 
     def resource(self,source,value,folder,extension):
         if not isinstance(value,str) or value.startswith('#'):return None
-        namespace=source.split('/')[1] if source.startswith('assets/') else 'minecraft'
+        # Java JSON resource identifiers default to minecraft, not the file's
+        # namespace. Extension properties retain their separate local rules.
+        namespace=source.split('/')[1] if not source.endswith('.json') and source.startswith('assets/') else 'minecraft'
         if ':' in value:namespace,value=value.split(':',1)
         value=value.removesuffix(extension)
         if value.startswith('/') or '..' in value.split('/') or '\\' in value or not namespace:return None

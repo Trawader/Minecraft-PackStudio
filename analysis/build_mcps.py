@@ -19,6 +19,9 @@ environment['PATH']=os.pathsep.join(map(str,[Path(sys.executable).parent,Path(sy
 subprocess.run(command,cwd=ROOT,env=environment,check=True)
 shutil.copytree(staging/'dist/MCPS',output)
 shutil.copy2(ROOT/'README.md',output/'README.md')
+help_path=ROOT/'Help.txt'
+if not help_path.is_file():help_path=ROOT/'output/Help.txt'
+shutil.copy2(help_path,output/'Help.txt')
 manifest={p.relative_to(output).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in output.rglob('*') if p.is_file()}
 (ROOT/'output/McPackStudio-artifacts.json').write_text(json.dumps(manifest,indent=2),encoding='utf8')
 print(f'Built {output}: {len(manifest)} files',flush=True)
