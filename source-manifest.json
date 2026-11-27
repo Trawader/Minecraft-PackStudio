@@ -102,7 +102,7 @@
   "analysis/verify_versions.py": "e40029f1f56281b8e9440cf2d0960c9b09049f6592519d77afbc335a146d0bca",
   "analysis/verify_workspace.py": "ced8c5d276efdcaf3c432e6ce57c9f8e9608765446f4da02c8664d27b7a39453",
   "analysis/version_sources.py": "45d729ed548d4fbdfef3ee123c354e5ce4110b8ad9024d5ec7afa885fc01a82a",
-  "build.cmd": "6aa5fdc0975e6d687643d92e76683de49a342c00f02054233035bd00c553e81c",
+  "build.cmd": "41da2903387a8d0c7c870bfb5930fc313a692d667ab25e85c215fab6f3a93e12",
   "check_source.py": "7da74a6859ec9faca30ed1959f810f2efc52d266e3e620bb90bb6ba209167981",
   "docs/resource-identities.tsv": "115b2ce0cf91949d1b186f0197869ddc19773bb878c1a8d562f010fb1a89f442",
   "main.py": "4e8bea50ac109d04209191af9bf95550631439c15c31ee0138d38a3c4be60fad",
@@ -330,6 +330,6 @@
   "requirements-build.txt": "e1ffd8537aef74381c9cec6c739efe57275c0e859058932fa910975fab9088b3",
   "requirements.lock.txt": "9ac5409eb31b4c0338d6f57ff583e3c43d1c846cb75c48edb7721c775f281ee5",
   "requirements.txt": "6733098038fe3507611258b55aa31b6bb81c00beda3ef50b90e98d8a7fe42099",
-  "start.cmd": "5e86c454c4cdba9be637128eb7be3e1abd72d01b26f318fc6f087f8ba5ef6628",
+  "start.cmd": "c905dd1437043c1ff644f569e35439ac98707be0141d550215860cfdec0d859f",
   "\u6e90\u7801\u8bf4\u660e.txt": "5085232227e2605b22063af78c209b27174a210334f8d11f01e7a66f9910b1ad"
 }
