@@ -86,6 +86,23 @@ def inventory_layout(image,forward):
     return result
 
 @lru_cache(maxsize=121)
+def equipment_map(source,target):
+    """The two legacy armor UV sheets became humanoid equipment textures."""
+    src,dst=records(source),records(target);result={}
+    legacy='assets/minecraft/textures/models/armor/'
+    modern='assets/minecraft/textures/entity/equipment/'
+    for material in ('chainmail','diamond','gold','iron','leather','netherite','turtle'):
+        equipment='turtle_scute' if material=='turtle' else material
+        for layer,kind in ((1,'humanoid'),(2,'humanoid_leggings')):
+            for suffix in ('','_overlay'):
+                a=f'{legacy}{material}_layer_{layer}{suffix}.png'
+                b=f'{modern}{kind}/{equipment}{suffix}.png'
+                for old,new in ((a,b),(b,a)):
+                    if old in src and new in dst and old not in dst and src[old].get('size')==dst[new].get('size'):
+                        result[old]=new
+    return result
+
+@lru_cache(maxsize=121)
 def rename_map(source,target):
     old=before(source,'1.13');new=before(target,'1.13')
     mapping={r['source']:r['target'] for r in catalog()['rename_candidates']}
@@ -108,11 +125,17 @@ def rename_map(source,target):
             seen.add(current);todo.extend(graph.get(current,())-seen if current in graph else ())
         matches=seen & dest.keys()
         if len(matches)==1:result[path]=matches.pop()
+    result.update(equipment_map(source,target))
     return result
 
 def adapt(files,source,target,vanilla,below=None):
     if source==target:return dict(files),[]
-    out={};report=[];consumed=set();blocked=set();omitted=set();dest=records(target);src=records(source);below=below or {}
+    from .export_integrity import model_dependencies
+    from .model_compat import adapt_models
+    protected=model_dependencies(files)
+    out,report=adapt_models({p:raw for p,raw in files.items() if p in protected},source,target,vanilla)
+    files={p:raw for p,raw in files.items() if p not in protected}
+    consumed=set();blocked=set();omitted=set();dest=records(target);src=records(source);below=below or {}
     def note(path,action,detail):
         report.append(dict(path=path,action=action,detail=detail,source=source,target=target))
         if action=='omitted':omitted.add(path)
@@ -186,7 +209,7 @@ def adapt(files,source,target,vanilla,below=None):
             note(path,'unresolved','Custom resource preserved; target compatibility is not verified')
         if path.startswith('assets/minecraft/') and known and renamed not in dest and not (renamed.endswith('.png.mcmeta') and renamed[:-7] in dest):
             note(path,'omitted','No verified target mapping; game uses target vanilla where available');continue
-        if '/textures/entity/' in path and path in src and renamed in dest:
+        if '/textures/entity/' in path and path in src and renamed in dest and equipment_map(source,target).get(path)!=renamed:
             from .semantics import variant_id
             if variant_id(path,source)!=variant_id(renamed,target):
                 note(path,'omitted','Entity layout generation differs; source and target layout tags are incompatible');continue
@@ -200,8 +223,6 @@ def adapt(files,source,target,vanilla,below=None):
             actual=decode(data)
             if expected and actual.width()*expected[1]!=actual.height()*expected[0]:
                 note(path,'omitted','Image aspect ratio does not match target entity UV');continue
-        if path.startswith('assets/minecraft/') and ('/models/' in path or '/blockstates/' in path) and (before(source,'1.13'))!=(before(target,'1.13')):
-            note(path,'omitted','Model/state schema crosses flattening boundary; target vanilla model is used');continue
         if renamed!=path:note(path,'renamed',renamed)
         if path.endswith('.json'):
             try:
@@ -220,7 +241,8 @@ def adapt(files,source,target,vanilla,below=None):
                 if '/models/' in path and isinstance(value,dict) and 'textures' in value:value['textures']=visit(value['textures'])
                 data=json.dumps(value,ensure_ascii=False).encode()
             except (ValueError,UnicodeError,TypeError,AttributeError,KeyError):note(path,'unresolved','JSON could not be adapted')
-        out.setdefault(renamed,data)
+        if renamed==path:out[renamed]=data
+        else:out.setdefault(renamed,data)
     return out,report
 
 def export_composition(layers,vanilla,target,fallback,fill_policy=None,protected=None):
@@ -299,9 +321,13 @@ def export_composition(layers,vanilla,target,fallback,fill_policy=None,protected
             if fill_policy:
                 from .export_priority import apply_policy
                 notes+=apply_policy(group,version,target,converted,files,vanilla,{'mode':fill_policy,'below':dict(files)})
-            converted.update(preserved)
+            from .model_compat import adapt_models
+            preserved,model_notes=adapt_models(preserved,version,target,vanilla)
+            converted.update(preserved);notes.extend(model_notes)
             if version!=target:
-                notes.extend(dict(path=p,action='extension_preserved',detail='扩展资源及其实际引用链按原路径、原内容保留；目标版本兼容性未确认',source=version,target=target) for p in preserved)
+                from .export_integrity import is_model_config
+                notes.extend(dict(path=p,action='extension_preserved',
+                                  detail='引用资源保留；目标版本兼容性见模型配置与引用检查',source=version,target=target) for p in preserved if not is_model_config(p))
             files.update(converted)
             for path in written & converted.keys():report.append(dict(path=path,action='collision',detail='Within-layer collision: native target resources take priority, then newer source version',source=version,target=target,layer=layer.name))
             written.update(converted)

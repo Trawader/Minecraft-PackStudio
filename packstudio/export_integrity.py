@@ -10,6 +10,19 @@ def known_paths():
     return frozenset(path for version in VERSIONS for path in records(version))
 
 
+def is_model_config(path):
+    return path.startswith('assets/') and path.endswith('.json') and any(
+        part in path.split('/')[2:-1] for part in ('models','blockstates','items'))
+
+
+def model_dependencies(files):
+    """Keep supplied model definitions and their reference chain together."""
+    roots={path for path in files if is_model_config(path)}
+    if not roots:return set()
+    selected,_=ResourceGraph(files).parse().closure(roots,include_callers=True)
+    return selected
+
+
 def protected_paths(layers):
     # Use the winning configuration, so hidden lower configurations cannot invent links.
     files={}
@@ -18,7 +31,7 @@ def protected_paths(layers):
     known=known_paths();roots=set()
     for path in files:
         if not path.startswith('assets/'):continue
-        if (not path.startswith('assets/minecraft/')
+        if (is_model_config(path) or not path.startswith('assets/minecraft/')
             or any(part in path.split('/') for part in ('optifine','mcpatcher','overrides'))
             or path.endswith('.properties')
             or path.endswith('.json') and path not in known):roots.add(path)

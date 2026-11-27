@@ -10,7 +10,7 @@
   "docs/resource-identities.tsv": "115b2ce0cf91949d1b186f0197869ddc19773bb878c1a8d562f010fb1a89f442",
   "main.py": "4e8bea50ac109d04209191af9bf95550631439c15c31ee0138d38a3c4be60fad",
   "packstudio/__init__.py": "57ce1d4c2651c85e2a34d55ef22b7eb7e168820ea2d3aacaa542427e13dbb738",
-  "packstudio/adaptation.py": "f6337e1b4077fd63f7ed15797656fa7c69612984c4d4dbd02fb5d96a5a561ed2",
+  "packstudio/adaptation.py": "caa1c9c202ebaabe887b52fb119456911d00eb3672a90111abaa014ee94308e2",
   "packstudio/animation_editor.py": "2e124a2c6d0f7c068db97a811c60598b80418427f49d89c242db889762667753",
   "packstudio/appearance.py": "ebbdc1d425f03a29a5acf047ea85a4532dfa8ec8e90c226a9450c2c31023a0fe",
   "packstudio/assets/README.md": "24f173bf075e9f62a720312fef6cb2174d81d9521f2f8177c9f7f81ea7529299",
@@ -174,7 +174,7 @@
   "packstudio/editor_layout.py": "02741cb3f58c57effadf637ca254194916d02c455b6d68d9be648ad60d7af1a6",
   "packstudio/export_dialog.py": "51749f0f4771c5e2e12470aaf79215ecdfda6691a14f0919e0bf4c4993d467b0",
   "packstudio/export_history.py": "8796bc62ca59b4cd8145407e7403b5b4d18af56ba0b6da131a6be8ddb8974846",
-  "packstudio/export_integrity.py": "3de3078abc1000b1abd9d7372e2c5a2d6131ac66d6c2e8130e2c589ed960f6b9",
+  "packstudio/export_integrity.py": "6d787752f94624dfec3eab0d256aa3fcf47f315d74444df07d7ada376adab2de",
   "packstudio/export_priority.py": "757c9d5ed1342f4afc1d0c58e50c31e5a2a2711008ffc4752f71d18179f9d719",
   "packstudio/export_targets.py": "fbde718bccd0bf39ba91d244a8bf128c3c6be7cccf3a7fe724c6b145ee192350",
   "packstudio/frontend_flow.py": "a46a28c1672251f98b08366b92a7491ade44b7a037b670f355d8467821128796",
@@ -233,5 +233,6 @@
   "requirements.lock.txt": "9ac5409eb31b4c0338d6f57ff583e3c43d1c846cb75c48edb7721c775f281ee5",
   "requirements.txt": "6733098038fe3507611258b55aa31b6bb81c00beda3ef50b90e98d8a7fe42099",
   "start.cmd": "c905dd1437043c1ff644f569e35439ac98707be0141d550215860cfdec0d859f",
-  "\u6e90\u7801\u8bf4\u660e.txt": "5085232227e2605b22063af78c209b27174a210334f8d11f01e7a66f9910b1ad"
+  "\u6e90\u7801\u8bf4\u660e.txt": "5085232227e2605b22063af78c209b27174a210334f8d11f01e7a66f9910b1ad",
+  "packstudio/model_compat.py": "f5f347a78ccd123eb5043d6fb560bce9af41c4a89fb3bfda5fff310fd45b4827"
 }
