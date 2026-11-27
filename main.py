@@ -17,7 +17,6 @@ def main():
     faulthandler.enable(crash_log)
     app.setApplicationName(EXECUTABLE_NAME)
     app.setApplicationDisplayName(APP_TITLE)
-    app.setApplicationVersion(VERSION)
     icon_path=Path(__file__).parent/'packstudio/assets/mcps.ico'
     app.setWindowIcon(QIcon(str(icon_path)))
     if '--check-install' in sys.argv:

@@ -2,7 +2,7 @@
 
 Minecraft PackStudio 是面向 Minecraft Java 版资源包的桌面编辑器，集素材管理、像素编辑、物品预览、图集组件处理、项目合成和跨版本导出于一体。
 
-本源码目录版本为 **3.6.0**，程序标题为 **Minecraft PackStudio**，发行程序名为 **MCPS**。版本信息统一维护在 `packstudio/release.py`。
+正式版名称为 **Minecraft PackStudio**，发行程序名为 **MCPS**。应用名称统一维护在 `packstudio/release.py`。
 
 ## 仓库交付范围
 
@@ -144,7 +144,7 @@ py -3.13 -m venv .venv
 | 位置 | 职责 |
 | --- | --- |
 | `main.py` | 应用入口、运行日志、安装检查入口。 |
-| `packstudio/release.py` | 版本号、应用标题和发行程序名。 |
+| `packstudio/release.py` | 应用标题和发行程序名。 |
 | `packstudio/studio.py`、`ui.py` | 主窗口、交互连接和编辑工作流。 |
 | `packstudio/core.py`、`library.py` | 资源数据、工程读写、素材库持久化。 |
 | `packstudio/library_browser.py`、`selector.py`、`selector_taxonomy.py` | 文件浏览、物品选择器和分类。 |

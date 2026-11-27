@@ -1,4 +1,4 @@
-"""V3 source-first selector, sharing library UIDs and original file descriptors."""
+"""Source-first selector, sharing library UIDs and original file descriptors."""
 from PySide6.QtCore import Qt,QSignalBlocker
 from PySide6.QtWidgets import QComboBox,QCheckBox,QTreeWidgetItem,QListWidgetItem
 from .object_catalog import TOP

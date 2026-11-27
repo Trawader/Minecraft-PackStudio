@@ -10,9 +10,7 @@ if output.exists():
     raise FileExistsError(output)
 staging=ROOT/'.tmp/mcps-build'
 staging.mkdir(parents=True,exist_ok=True)
-version=staging/'version.txt'
-version.write_text("""VSVersionInfo(ffi=FixedFileInfo(filevers=(3,6,0,0),prodvers=(3,6,0,0),mask=0x3f,flags=0,OS=0x40004,fileType=0x1,subtype=0,date=(0,0)),kids=[StringFileInfo([StringTable('040904B0',[StringStruct('FileDescription','Minecraft PackStudio'),StringStruct('ProductName','Minecraft PackStudio'),StringStruct('FileVersion','3.6.0'),StringStruct('ProductVersion','3.6.0'),StringStruct('InternalName','MCPS'),StringStruct('OriginalFilename','MCPS.exe')])]),VarFileInfo([VarStruct('Translation',[1033,1200])])])""",encoding='utf8')
-command=[sys.executable,'-m','PyInstaller','--noconfirm','--clean','--onedir','--windowed','--name','MCPS','--icon',str(ROOT/'packstudio/assets/mcps.ico'),'--version-file',str(version),'--contents-directory','_internal','--distpath',str(staging/'dist'),'--workpath',str(staging/'work'),'--specpath',str(staging)]
+command=[sys.executable,'-m','PyInstaller','--noconfirm','--clean','--onedir','--windowed','--name','MCPS','--icon',str(ROOT/'packstudio/assets/mcps.ico'),'--contents-directory','_internal','--distpath',str(staging/'dist'),'--workpath',str(staging/'work'),'--specpath',str(staging)]
 for source,target in [('packstudio/data','packstudio/data'),('packstudio/assets','packstudio/assets'),('docs/resource-identities.tsv','docs')]:
     command+=['--add-data',str(ROOT/source)+';'+target]
 command.append(str(ROOT/'main.py'))

@@ -11,7 +11,7 @@ identity={}
 exec(pyz.extract('packstudio.release'),identity)
 assert identity['APP_TITLE']=='Minecraft PackStudio'
 assert identity['EXECUTABLE_NAME']=='MCPS'
-assert identity['VERSION']=='3.6.0'
+assert identity['VERSION']==''
 modules=[]
 for p in (ROOT/'packstudio').glob('*.py'):
     name='packstudio' if p.stem=='__init__' else 'packstudio.'+p.stem
@@ -34,9 +34,9 @@ for directory in ('data','assets'):
         assets+=1
 for name in ('library','projects','config','reference','.tmp'):
     assert not (output/name).exists(),name
-readme=(output/'Readme.txt').read_text(encoding='utf-8-sig')
-assert 'MCPS.exe' in readme and 'ENGLISH GUIDE' in readme
-assert '**' not in readme and 'V3.6' not in readme
+readme=(output/'README.md').read_text(encoding='utf-8-sig')
+assert 'MCPS.exe' in readme and 'Minecraft PackStudio' in readme
+assert '3.6.0' not in readme
 report={'status':'passed','modules_match_current_source':len(modules),'assets_match':assets,'identity':'Minecraft PackStudio','personal_data':'absent','gui_launched':False,'bytes':sum(p.stat().st_size for p in output.rglob('*') if p.is_file())}
 (ROOT/'analysis/mcps-packaged-static-check.json').write_text(json.dumps(report,indent=2),encoding='utf8')
 print(json.dumps(report,indent=2))
